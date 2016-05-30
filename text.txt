@@ -1,9 +1,0 @@
-Maybe they use the '80s flick "War Games" as a training film, too.
-
-The U.S. Defense Department is still using — after several decades — 8-inch floppy disks in a computer system that coordinates the operational functions of the nation's nuclear forces, a jaw-dropping new report reveals.
-
-The Defense Department's 1970s-era IBM Series/1 Computer and long-outdated floppy disks handle functions related to intercontinental ballistic missiles, nuclear bombers and tanker support aircraft, according to the new Government Accountability Office report.
-
-The department's outdated "Strategic Automated Command and Control System" is one of the 10 oldest information technology investments or systems detailed in the sobering GAO report, which calls for a number of federal agencies "to address aging legacy systems."
-
-The report shows that creaky IT systems are being used to handle important functions related to the nation's taxpayers, federal prisoners and military veterans, as well as to the U.S. nuclear umbrella.
