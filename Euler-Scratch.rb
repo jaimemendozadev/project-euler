@@ -1,21 +1,72 @@
+=begin 
+
+Find largest index i such that array[i − 1] < array[i].
+
+Find largest index j such that j ≥ i and array[j] > array[i − 1].
+
+Swap array[j] and array[i − 1].
+
+Reverse the suffix starting at array[i].
+
+=end
 
 
-arr = [1, 2, 3, 4, 5]
 
-result = []
 
-arr.each do |x|
-  arr.each do |y| 
-    temp = x + y
-    puts temp
-    puts ""
 
-    result << temp
-    
-  end
-end
 
-puts result.inspect
+initial_sequence = [0, 1, 2, 5, 3, 3, 0]
+
+
+initial_sequence.each_with_index do |num, idx|
+
+  #Find start of suffix
+  
+  if initial_sequence[idx] > initial_sequence[idx + 1]
+
+    #slice suffix
+    start_num = idx
+    end_num = 1
+
+    i = idx
+
+    while i < initial_sequence.length - 1
+      if initial_sequence[i] > initial_sequence[i+1]
+        end_num += 1
+      end
+
+      i += 1
+    end
+
+    suffix = initial_sequence.slice(start_num, end_num)
+
+
+    #find the pivot, if any
+
+    pivot = initial_sequence[idx - 1] < initial_sequence[idx] ? initial_sequence[idx - 1] : nil
+
+    return initial_sequence if pivot == nil
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 =begin
 require 'benchmark'
