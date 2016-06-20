@@ -1,42 +1,43 @@
-def check_for_repeats(float)
+def is_a_prime?(num)
+  return true if num == 2
 
- decimal_hash = Hash.new(0)
+  (2...num).each {|x| return false if num % x == 0 }
 
- decimal_array = float.to_s.gsub(/\d+\./,"").split("").map(&:to_i)
+  return true
 
-
- decimal_array.uniq.length
-
-=begin
- decimal_array.each do |n| 
-   decimal_hash[n]+=1
- end
-
- decimal_hash.inspect
+end
 
 
- decimal_hash.select! {|k, v| v > 1 }
+def count_the_cycles(num)
+  cycles = 1
+  initial_calculation = 10 % num
 
- decimal_hash.empty? ? nil : decimal_hash.keys.length
+  return 1 if initial_calculation == 0
 
+  while initial_calculation != 1
+  	initial_calculation = (initial_calculation * 10) % num
+  	cycles += 1
+  end
 
-=end
+  cycles
+
 end
 
 
 def reciprocal_cycles(num)
-  reciprocal_hash = {}
-  
-  (2..num).each do |n|
-  	float_num = 1/n.to_f
+  num_range = [*2..num]
 
-  	#puts float_num
-  	
-  	reciprocal_hash[n] = check_for_repeats(float_num)
+  recip_hash = Hash.new(0)
+
+  prime_range = num_range.reverse.map{|x| x if is_a_prime?(x) == true }.compact
+
+
+  prime_range.each do |p|
+    recip_hash[p] = count_the_cycles(p)   
   end
 
-  reciprocal_hash.delete_if {|k, v| v < 1 }.sort {|a, b| a <=> b}.inspect
-    
+  recip_hash.sort_by {|key, value| value}.last.first
+
 end
 
 puts reciprocal_cycles(1000) #s/b 983
