@@ -13,46 +13,16 @@ Reverse the suffix starting at array[i].
 
 
 
+def is_a_prime?(num)
+  return true if num == 2
 
+  (2...num).each {|x| return false if num % x == 0 }
 
-initial_sequence = [0, 1, 2, 5, 3, 3, 0]
+  return true
 
+end
 
-initial_sequence.each_with_index do |num, idx|
-
-  #Find start of suffix
-  
-  if initial_sequence[idx] > initial_sequence[idx + 1]
-
-    #slice suffix
-    start_num = idx
-    end_num = 1
-
-    i = idx
-
-    while i < initial_sequence.length - 1
-      if initial_sequence[i] > initial_sequence[i+1]
-        end_num += 1
-      end
-
-      i += 1
-    end
-
-    suffix = initial_sequence.slice(start_num, end_num)
-
-
-    #find the pivot, if any
-
-    pivot = initial_sequence[idx - 1] < initial_sequence[idx] ? initial_sequence[idx - 1] : nil
-
-    return initial_sequence if pivot == nil
-
-
-
-
-
-
-
+puts is_a_prime?(41)
 
 
 
